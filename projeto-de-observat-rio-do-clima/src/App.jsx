@@ -1,122 +1,90 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from 'react';
+import SOSModule from './components/SOSModule.jsx';
+import MonitoringModule from './components/MonitoringModule.jsx';
+import KnowledgeModule from './components/KnowledgeModule.jsx';
+import { AlertCircle, Activity, BookOpen } from 'lucide-react';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [activeTab, setActiveTab] = useState('sos');
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
+    <div style={{ backgroundColor: '#f4f6f8', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
+      
+      {/* Cabeçalho do Aplicativo */}
+      <header style={{ backgroundColor: '#2e7d32', color: 'white', padding: '1.2rem', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+        <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Apoio Psicossocial</h1>
+        <p style={{ margin: '0.3rem 0 0 0', fontSize: '0.85rem', opacity: 0.9 }}>
+          Sistema de Monitoramento e Suporte — Patos de Minas
+        </p>
+      </header>
+
+      {/* Menu de Navegação entre Abas */}
+      <nav style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1b5e20', padding: '0.5rem 0' }}>
         <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => setActiveTab('sos')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'sos' ? '#fff' : 'rgba(255,255,255,0.7)',
+            borderBottom: activeTab === 'sos' ? '3px solid #fff' : '3px solid transparent',
+            padding: '0.8rem 1.2rem',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}
         >
-          Count is {count}
+          <AlertCircle size={18} />
+          SOS / Emergência
         </button>
-      </section>
 
-      <div className="ticks"></div>
+        <button
+          onClick={() => setActiveTab('monitor')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'monitor' ? '#fff' : 'rgba(255,255,255,0.7)',
+            borderBottom: activeTab === 'monitor' ? '3px solid #fff' : '3px solid transparent',
+            padding: '0.8rem 1.2rem',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}
+        >
+          <Activity size={18} />
+          Monitoramento
+        </button>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <button
+          onClick={() => setActiveTab('info')}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: activeTab === 'info' ? '#fff' : 'rgba(255,255,255,0.7)',
+            borderBottom: activeTab === 'info' ? '3px solid #fff' : '3px solid transparent',
+            padding: '0.8rem 1.2rem',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}
+        >
+          <BookOpen size={18} />
+          Pesquisa
+        </button>
+      </nav>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* Área de Conteúdo Dinâmico */}
+      <main style={{ padding: '1rem 0' }}>
+        {activeTab === 'sos' && <SOSModule />}
+        {activeTab === 'monitor' && <MonitoringModule />}
+        {activeTab === 'info' && <KnowledgeModule />}
+      </main>
+
+    </div>
+  );
 }
-
-export default App
