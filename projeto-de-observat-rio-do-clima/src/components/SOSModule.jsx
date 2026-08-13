@@ -6,7 +6,7 @@ export default function SOSModule() {
   const triggerAlert = async () => {
     try {
       // Envia a notificação de emergência para o Back-End na porta 3001
-      const response = await axios.post('http://localhost:3001/api/sos', {
+      const response = await axios.post('https://projetodeobservatoriodoclima2026.onrender.com', {
         userLocation: 'Patos de Minas - MG',
         timestamp: new Date().toISOString()
       });
