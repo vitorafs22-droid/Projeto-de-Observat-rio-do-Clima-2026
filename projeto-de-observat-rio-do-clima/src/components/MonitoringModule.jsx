@@ -15,7 +15,7 @@ export default function MonitoringModule() {
 
     try {
       // Envia os dados diários para salvar no banco/memória do servidor Node.js
-      await axios.post('https://projetodeobservatoriodoclima2026.onrender.com', {
+      await axios.post('https://projeto-de-observat-rio-do-clima-20.vercel.app/', {
         sleepHours: Number(sleepHours),
         agitationLevel: Number(agitationLevel),
         medsTaken,
