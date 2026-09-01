@@ -25,7 +25,7 @@ export default function App() {
           style={{
             background: 'none',
             border: 'none',
-            color: activeTab === 'sos' ? '#fff' : 'rgba(255,255,255,0.7)',
+            color: activeTab === 'sos' ? '#000000' : 'rgba(0, 0, 0, 0.7)',
             borderBottom: activeTab === 'sos' ? '3px solid #fff' : '3px solid transparent',
             padding: '0.8rem 1.2rem',
             cursor: 'pointer',
@@ -44,7 +44,7 @@ export default function App() {
           style={{
             background: 'none',
             border: 'none',
-            color: activeTab === 'monitor' ? '#fff' : 'rgba(255,255,255,0.7)',
+            color: activeTab === 'monitor' ? '#000000' : 'rgba(0, 0, 0, 0.7)',
             borderBottom: activeTab === 'monitor' ? '3px solid #fff' : '3px solid transparent',
             padding: '0.8rem 1.2rem',
             cursor: 'pointer',
@@ -63,7 +63,7 @@ export default function App() {
           style={{
             background: 'none',
             border: 'none',
-            color: activeTab === 'info' ? '#fff' : 'rgba(255,255,255,0.7)',
+            color: activeTab === 'info' ? '#000000' : 'rgba(0, 0, 0, 0.7)',
             borderBottom: activeTab === 'info' ? '3px solid #fff' : '3px solid transparent',
             padding: '0.8rem 1.2rem',
             cursor: 'pointer',
