@@ -1,90 +1,62 @@
 import React, { useState } from 'react';
-import SOSModule from './components/SOSModule.jsx';
-import MonitoringModule from './components/MonitoringModule.jsx';
-import KnowledgeModule from './components/KnowledgeModule.jsx';
-import { AlertCircle, Activity, BookOpen } from 'lucide-react';
+import SOSModule from './components/SOSModule';
+import MonitoringModule from './components/MonitoringModule';
 
-export default function App() {
+function App() {
   const [activeTab, setActiveTab] = useState('sos');
 
   return (
-    <div style={{ backgroundColor: '#f4f6f8', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
-      
-      {/* Cabeçalho do Aplicativo */}
-      <header style={{ backgroundColor: '#2e7d32', color: 'white', padding: '1.2rem', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-        <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Apoio Psicossocial</h1>
-        <p style={{ margin: '0.3rem 0 0 0', fontSize: '0.85rem', opacity: 0.9 }}>
-          Sistema de Monitoramento e Suporte — Patos de Minas
-        </p>
+    <div style={{ fontFamily: 'Arial, sans-serif', minHeight: '100vh', backgroundColor: '#121212', color: '#ffffff', paddingBottom: '40px' }}>
+      {/* Cabeçalho */}
+      <header style={{ backgroundColor: '#1f1f1f', color: '#ffffff', padding: '24px', textAlign: 'center', borderBottom: '1px solid #333' }}>
+        <h1 style={{ margin: 0, fontSize: '26px', color: '#64b5f6' }}>Rede de Atenção Psicossocial (RAPS)</h1>
+        <p style={{ margin: '6px 0 0 0', color: '#aaa', fontSize: '14px' }}>Patos de Minas - MG</p>
       </header>
 
-      {/* Menu de Navegação entre Abas */}
-      <nav style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#1b5e20', padding: '0.5rem 0' }}>
-        <button
+      {/* Navegação */}
+      <nav style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '24px', padding: '0 10px' }}>
+        <button 
           onClick={() => setActiveTab('sos')}
           style={{
-            background: 'none',
-            border: 'none',
-            color: activeTab === 'sos' ? '#000000' : 'rgba(0, 0, 0, 0.7)',
-            borderBottom: activeTab === 'sos' ? '3px solid #fff' : '3px solid transparent',
-            padding: '0.8rem 1.2rem',
+            padding: '12px 24px',
+            fontSize: '15px',
+            borderRadius: '6px',
+            border: activeTab === 'sos' ? '1px solid #d9534f' : '1px solid #333',
             cursor: 'pointer',
+            backgroundColor: activeTab === 'sos' ? '#d9534f' : '#1e1e1e',
+            color: activeTab === 'sos' ? '#ffffff' : '#aaa',
             fontWeight: 'bold',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
+            transition: '0.2s'
           }}
         >
-          <AlertCircle size={18} />
-          SOS / Emergência
+          🚨 Emergência (SOS)
         </button>
 
-        <button
-          onClick={() => setActiveTab('monitor')}
+        <button 
+          onClick={() => setActiveTab('monitoring')}
           style={{
-            background: 'none',
-            border: 'none',
-            color: activeTab === 'monitor' ? '#000000' : 'rgba(0, 0, 0, 0.7)',
-            borderBottom: activeTab === 'monitor' ? '3px solid #fff' : '3px solid transparent',
-            padding: '0.8rem 1.2rem',
+            padding: '12px 24px',
+            fontSize: '15px',
+            borderRadius: '6px',
+            border: activeTab === 'monitoring' ? '1px solid #0275d8' : '1px solid #333',
             cursor: 'pointer',
+            backgroundColor: activeTab === 'monitoring' ? '#0275d8' : '#1e1e1e',
+            color: activeTab === 'monitoring' ? '#ffffff' : '#aaa',
             fontWeight: 'bold',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
+            transition: '0.2s'
           }}
         >
-          <Activity size={18} />
-          Monitoramento
-        </button>
-
-        <button
-          onClick={() => setActiveTab('info')}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: activeTab === 'info' ? '#000000' : 'rgba(0, 0, 0, 0.7)',
-            borderBottom: activeTab === 'info' ? '3px solid #fff' : '3px solid transparent',
-            padding: '0.8rem 1.2rem',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem'
-          }}
-        >
-          <BookOpen size={18} />
-          Pesquisa
+          📊 Monitoramento Diário
         </button>
       </nav>
 
-      {/* Área de Conteúdo Dinâmico */}
-      <main style={{ padding: '1rem 0' }}>
+      {/* Conteúdo da Aba */}
+      <main style={{ marginTop: '30px' }}>
         {activeTab === 'sos' && <SOSModule />}
-        {activeTab === 'monitor' && <MonitoringModule />}
-        {activeTab === 'info' && <KnowledgeModule />}
+        {activeTab === 'monitoring' && <MonitoringModule />}
       </main>
-
     </div>
   );
 }
+
+export default App;
