@@ -41,13 +41,13 @@ export default function MonitoringModule() {
           <Activity size={24} />
           Monitoramento Diário de Sinais
         </h2>
-        <p style={{ color: '#555', fontSize: '0.9rem' }}>
+        <p style={{ color: '#000000', fontSize: '0.9rem' }}>
           Registre os parâmetros diários para acompanhar o padrão de estabilidade e prevenir crises.
         </p>
 
         <form onSubmit={handleAssessment} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
           <div>
-            <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
+            <label style={{ backgroundColor: '#000000', color: 'white',display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
               Horas de Sono na última noite:
             </label>
             <input 
@@ -63,7 +63,7 @@ export default function MonitoringModule() {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
+            <label style={{ backgroundColor: '#000000', color: 'white', display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
               Nível de Agitação / Ansiedade:
             </label>
             <select 
@@ -80,7 +80,7 @@ export default function MonitoringModule() {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
+            <label style={{ backgroundColor: '#000000', color: 'white',display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
               Usou as medicações prescritas corretamente?
             </label>
             <select 
@@ -117,7 +117,7 @@ export default function MonitoringModule() {
               <AlertTriangle size={20} />
               Atenção: Indicadores de risco identificados!
             </h4>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: '#333' }}>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: '#000000' }}>
               Os parâmetros inseridos são fatores de risco para uma descompensação psicopatológica. Recomendamos alertar o cuidador ou contatar o CAPS/Médico de referência.
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function MonitoringModule() {
               <CheckCircle2 size={20} />
               Registro Estável
             </h4>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: '#333' }}>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: '#000000' }}>
               Parâmetros dentro da faixa normal. Registrados com sucesso no servidor.
             </p>
           </div>

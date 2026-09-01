@@ -25,7 +25,7 @@ export default function SOSModule() {
       <div style={{ backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', marginBottom: '1.5rem' }}>
         <AlertOctagon size={48} color="#d32f2f" style={{ marginBottom: '0.5rem' }} />
         <h2 style={{ margin: '0 0 0.5rem 0', color: '#d32f2f' }}>Apoio de Emergência</h2>
-        <p style={{ color: '#555', fontSize: '0.95rem' }}>Pressione o botão abaixo para notificar sua rede de apoio instantaneamente.</p>
+        <p style={{ color: '#000000', fontSize: '0.95rem' }}>Pressione o botão abaixo para notificar sua rede de apoio instantaneamente.</p>
         
         <button 
           onClick={triggerAlert}
@@ -48,7 +48,7 @@ export default function SOSModule() {
       </div>
 
       {/* Rede de Atendimento em Patos de Minas */}
-      <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+      <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>
         <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#1b5e20', marginTop: 0 }}>
           <PhoneCall size={20} />
           Telefones Úteis — Patos de Minas
@@ -56,17 +56,17 @@ export default function SOSModule() {
 
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>SAMU:</strong> 192 <small style={{ color: '#666' }}>(Urgências e crises graves 24h)</small>
+            <strong>SAMU:</strong> 192 <small style={{ color: '#000000' }}>(Urgências e crises graves 24h)</small>
           </li>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
             <strong>CAPS II Patos de Minas:</strong> Suporte especializado em saúde mental
           </li>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>CVV (Centro de Valorização da Vida):</strong> 188 <small style={{ color: '#666' }}>(Apoio emocional gratuito 24h)</small>
+            <strong>CVV (Centro de Valorização da Vida):</strong> 188 <small style={{ color: '#000000' }}>(Apoio emocional gratuito 24h)</small>
           </li>
           <li style={{ padding: '0.8rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <MapPin size={16} color="#2e7d32" />
-            <small style={{ color: '#555' }}>Em caso de surto psicótico grave, dirija-se à UPA ou peça apoio ao SAMU na região municipal.</small>
+            <small style={{ color: '#000000' }}>Em caso de surto psicótico grave, dirija-se à UPA ou peça apoio ao SAMU na região municipal.</small>
           </li>
         </ul>
       </div>
