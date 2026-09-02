@@ -1,9 +1,11 @@
-import React from 'react';
-import { AlertOctagon, PhoneCall, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-export default function SOSModule() {
+function SOSModule() {
+  const [loading, setLoading] = useState(false);
+
   const triggerAlert = async () => {
+    setLoading(true);
     try {
       // Envia a notificação de emergência para o Back-End na porta 3001
       const response = await axios.post('https://mainprojetoobservatoripdoclima.onrender.com/api/sos', {
@@ -13,13 +15,27 @@ export default function SOSModule() {
 
       alert(`🚨 ${response.data.message}`);
     } catch (error) {
-      console.error("Erro ao conectar ao servidor SOS:", error);
-      alert("⚠️ Erro ao comunicar com o servidor. Telefones de emergência locais continuam disponíveis abaixo!");
+      console.error('Erro ao conectar com o servidor:', error);
+      alert('⚠️ O servidor do Render está despertando. Aguarde cerca de 20 segundos e tente clicar novamente!');
+    } finally {
+      setLoading(false);
     }
   };
 
+  const emergencyContacts = [
+    { name: 'CVV (Apoio Emocional)', phone: '188', desc: 'Gratuito e 24 horas' },
+    { name: 'SAMU (Emergência Médica)', phone: '192', desc: 'Atendimento de urgência' },
+    { name: 'Corpo de Bombeiros', phone: '193', desc: 'Resgate e emergências' },
+    { name: 'CAPS II - Patos de Minas', phone: '(34) 3822-9600', desc: 'Atendimento psicossocial' },
+    { name: 'CAPS AD - Patos de Minas', phone: '(34) 3822-9700', desc: 'Apoio especializado (Álcool e Drogas)' }
+  ];
+
   return (
-    <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem' }}>
+    <div style={{ padding: '25px', maxWidth: '550px', margin: '0 auto', backgroundColor: '#161b22', borderRadius: '12px', border: '1px solid #30363d', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
+      <h2 style={{ textAlign: 'center', color: '#ff7b72', marginTop: 0 }}>🚨 Central de Emergência - RAPS</h2>
+      <p style={{ textAlign: 'center', color: '#c9d1d9' }}>
+        Clique no botão para acionar o alerta ou utilize os telefones diretos de socorro.
+      </p>
       
       {/* Botão Principal de Emergência */}
       <div style={{ backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', marginBottom: '1.5rem' }}>
@@ -29,31 +45,26 @@ export default function SOSModule() {
         
        
         <button 
-          onClick={triggerAlert}
+          onClick={triggerAlert} 
+          disabled={loading}
           style={{
-            backgroundColor: '#d32f2f',
-            color: 'white',
-            border: 'none',
-            padding: '1rem 2rem',
-            fontSize: '1.2rem',
+            padding: '18px 32px',
+            fontSize: '18px',
             fontWeight: 'bold',
-            borderRadius: '50px',
-            cursor: 'pointer',
-            width: '100%',
-            marginTop: '1rem',
-            boxShadow: '0 4px 10px rgba(211, 47, 47, 0.3)'
+            backgroundColor: loading ? '#484f58' : '#da3633',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: loading ? 'not-allowed' : 'pointer',
+            boxShadow: '0 4px 10px rgba(218, 54, 51, 0.4)',
+            width: '100%'
           }}
         >
-          ACIONAR BOTÃO SOS
+          {loading ? 'ENVIANDO ALERTA...' : '🚨 DISPARAR ALERTA DE EMERGÊNCIA'}
         </button>
       </div>
 
-      {/* Rede de Atendimento em Patos de Minas */}
-      <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-        <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#1b5e20', marginTop: 0 }}>
-          <PhoneCall size={20} />
-          Telefones Úteis — Patos de Minas
-        </h3>
+      <hr style={{ border: 'none', borderTop: '1px solid #30363d', margin: '20px 0' }} />
 
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
@@ -70,8 +81,9 @@ export default function SOSModule() {
             <small style={{ color: '#000000' }}>Em caso de surto psicótico grave, dirija-se à UPA ou peça apoio ao SAMU na região municipal.</small>
           </li>
         </ul>
-      </div>
-
+      
     </div>
   );
 }
+
+export default SOSModule;
