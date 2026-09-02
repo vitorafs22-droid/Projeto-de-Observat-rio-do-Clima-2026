@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SOSModule from './components/SOSModule.jsx';
 import MonitoringModule from './components/MonitoringModule.jsx';
-import KnowledgeModule from './components/KnowledgeModule.jsx';
+import KnowledgeModule from './components/KnowLedgeModule.jsx';
 import { AlertCircle, Activity, BookOpen } from 'lucide-react';
 
 export default function App() {
@@ -11,8 +11,8 @@ export default function App() {
     <div style={{ backgroundColor: '#f4f6f8', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
       {/* Cabeçalho do Aplicativo */}
-      <header style={{ backgroundColor: '#2e7d32', color: 'white', padding: '1.2rem', textAlign: 'center', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-        <h1 style={{ margin: 0, fontSize: '1.5rem' }}>Apoio Psicossocial</h1>
+      <header style={{ backgroundColor: '#2e7d32', color: 'white', padding: '1.2rem', textAlign: 'center', boxShadow: '0 2px 4px rgb(255, 255, 255)' }}>
+        <h1 style={{margin: 0, fontSize: '1.5rem' }}>Apoio Psicossocial</h1>
         <p style={{ margin: '0.3rem 0 0 0', fontSize: '0.85rem', opacity: 0.9 }}>
           Sistema de Monitoramento e Suporte — Patos de Minas
         </p>
@@ -87,4 +87,4 @@ export default function App() {
 
     </div>
   );
-}
+} 

@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "debug": "node --inspect server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "echo No build step required"
   }
 }

@@ -15,7 +15,7 @@ export default function MonitoringModule() {
 
     try {
       // Envia os dados diários para salvar no banco/memória do servidor Node.js
-      await axios.post('https://projeto-de-observat-rio-do-clima-20.vercel.app/', {
+      await axios.post('https://mainprojetoobservatoripdoclima.onrender.com/api/monitoring', {
         sleepHours: Number(sleepHours),
         agitationLevel: Number(agitationLevel),
         medsTaken,
@@ -35,7 +35,7 @@ export default function MonitoringModule() {
 
   return (
     <div style={{ maxWidth: '600px', margin: '0 auto', padding: '1rem' }}>
-      <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+      <div style={{ backgroundColor: '#fff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 4px 6px rgb(0, 0, 0)' }}>
         
         <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#1b5e20', marginTop: 0 }}>
           <Activity size={24} />

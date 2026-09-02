@@ -7,7 +7,8 @@ function SOSModule() {
   const triggerAlert = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('https://projeto-de-observat-rio-do-clima-20.vercel.app/', {
+      // Envia a notificação de emergência para o Back-End na porta 3001
+      const response = await axios.post('https://mainprojetoobservatoripdoclima.onrender.com/api/sos', {
         userLocation: 'Patos de Minas - MG',
         timestamp: new Date().toISOString()
       });
@@ -36,8 +37,13 @@ function SOSModule() {
         Clique no botão para acionar o alerta ou utilize os telefones diretos de socorro.
       </p>
       
-      {/* Botão de Disparo */}
-      <div style={{ textAlign: 'center', marginBottom: '30px', marginTop: '20px' }}>
+      {/* Botão Principal de Emergência */}
+      <div style={{ backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', marginBottom: '1.5rem' }}>
+        <AlertOctagon size={48} color="#d32f2f" style={{ marginBottom: '0.5rem' }} />
+        <h2 style={{ margin: '0 0 0.5rem 0', color: '#d32f2f' }}>Apoio de Emergência</h2>
+        <p style={{ color: '#ffffff', fontSize: '0.95rem' }}>Pressione o botão abaixo para notificar sua rede de apoio instantaneamente.</p>
+        
+       
         <button 
           onClick={triggerAlert} 
           disabled={loading}
@@ -60,46 +66,22 @@ function SOSModule() {
 
       <hr style={{ border: 'none', borderTop: '1px solid #30363d', margin: '20px 0' }} />
 
-      {/* Lista de Telefones Úteis */}
-      <h3 style={{ color: '#58a6ff', marginBottom: '15px' }}>📞 Telefones de Emergência e Apoio</h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        {emergencyContacts.map((contact, index) => (
-          <div 
-            key={index}
-            style={{
-              padding: '14px',
-              backgroundColor: '#0d1117',
-              borderRadius: '8px',
-              borderLeft: '4px solid #da3633',
-              borderTop: '1px solid #21262d',
-              borderRight: '1px solid #21262d',
-              borderBottom: '1px solid #21262d',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}
-          >
-            <div>
-              <strong style={{ display: 'block', color: '#ffffff', fontSize: '15px' }}>{contact.name}</strong>
-              <small style={{ color: '#8b949e' }}>{contact.desc}</small>
-            </div>
-            <a 
-              href={`tel:${contact.phone.replace(/[^0-9]/g, '')}`}
-              style={{
-                backgroundColor: '#da3633',
-                color: '#ffffff',
-                padding: '8px 14px',
-                borderRadius: '6px',
-                textDecoration: 'none',
-                fontWeight: 'bold',
-                fontSize: '14px'
-              }}
-            >
-              📞 {contact.phone}
-            </a>
-          </div>
-        ))}
-      </div>
+        <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+          <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
+            <strong>SAMU:</strong> 192 <small style={{ color: '#000000' }}>(Urgências e crises graves 24h)</small>
+          </li>
+          <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
+            <strong>CAPS II Patos de Minas:</strong> Suporte especializado em saúde mental
+          </li>
+          <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
+            <strong>CVV (Centro de Valorização da Vida):</strong> 188 <small style={{ color: '#000000' }}>(Apoio emocional gratuito 24h)</small>
+          </li>
+          <li style={{ padding: '0.8rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <MapPin size={16} color="#2e7d32" />
+            <small style={{ color: '#000000' }}>Em caso de surto psicótico grave, dirija-se à UPA ou peça apoio ao SAMU na região municipal.</small>
+          </li>
+        </ul>
+      
     </div>
   );
 }
