@@ -6,7 +6,7 @@ export default function SOSModule() {
   const triggerAlert = async () => {
     try {
       // Envia a notificação de emergência para o Back-End na porta 3001
-      const response = await axios.post('https://projetodeobservatoriodoclima2026.onrender.com', {
+      const response = await axios.post('https://mainprojetoobservatoripdoclima.onrender.com/api/sos', {
         userLocation: 'Patos de Minas - MG',
         timestamp: new Date().toISOString()
       });
@@ -25,8 +25,9 @@ export default function SOSModule() {
       <div style={{ backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', marginBottom: '1.5rem' }}>
         <AlertOctagon size={48} color="#d32f2f" style={{ marginBottom: '0.5rem' }} />
         <h2 style={{ margin: '0 0 0.5rem 0', color: '#d32f2f' }}>Apoio de Emergência</h2>
-        <p style={{ color: '#555', fontSize: '0.95rem' }}>Pressione o botão abaixo para notificar sua rede de apoio instantaneamente.</p>
+        <p style={{ color: '#ffffff', fontSize: '0.95rem' }}>Pressione o botão abaixo para notificar sua rede de apoio instantaneamente.</p>
         
+       
         <button 
           onClick={triggerAlert}
           style={{
@@ -56,17 +57,17 @@ export default function SOSModule() {
 
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>SAMU:</strong> 192 <small style={{ color: '#666' }}>(Urgências e crises graves 24h)</small>
+            <strong>SAMU:</strong> 192 <small style={{ color: '#000000' }}>(Urgências e crises graves 24h)</small>
           </li>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
             <strong>CAPS II Patos de Minas:</strong> Suporte especializado em saúde mental
           </li>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>CVV (Centro de Valorização da Vida):</strong> 188 <small style={{ color: '#666' }}>(Apoio emocional gratuito 24h)</small>
+            <strong>CVV (Centro de Valorização da Vida):</strong> 188 <small style={{ color: '#000000' }}>(Apoio emocional gratuito 24h)</small>
           </li>
           <li style={{ padding: '0.8rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <MapPin size={16} color="#2e7d32" />
-            <small style={{ color: '#555' }}>Em caso de surto psicótico grave, dirija-se à UPA ou peça apoio ao SAMU na região municipal.</small>
+            <small style={{ color: '#000000' }}>Em caso de surto psicótico grave, dirija-se à UPA ou peça apoio ao SAMU na região municipal.</small>
           </li>
         </ul>
       </div>
