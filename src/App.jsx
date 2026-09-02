@@ -11,7 +11,7 @@ export default function App() {
     <div style={{ backgroundColor: '#f4f6f8', minHeight: '100vh', fontFamily: 'Segoe UI, sans-serif' }}>
       
       {/* Cabeçalho do Aplicativo */}
-      <header style={{ backgroundColor: '#2e7d32', color: 'white', padding: '1.2rem', textAlign: 'center', boxShadow: '0 2px 4px rgb(255, 255, 255)' }}>
+      <header style={{ backgroundColor: '#2e7d32', color: 'white', padding: '1.2rem', textAlign: 'center', boxShadow: '0 2px 4px rgb(0, 0, 0)' }}>
         <h1 style={{margin: 0, fontSize: '1.5rem' }}>Apoio Psicossocial</h1>
         <p style={{ margin: '0.3rem 0 0 0', fontSize: '0.85rem', opacity: 0.9 }}>
           Sistema de Monitoramento e Suporte — Patos de Minas

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { AlertOctagon, MapPin, Phone } from 'lucide-react';
 
 function SOSModule() {
   const [loading, setLoading] = useState(false);
@@ -31,14 +32,9 @@ function SOSModule() {
   ];
 
   return (
-    <div style={{ padding: '25px', maxWidth: '550px', margin: '0 auto', backgroundColor: '#161b22', borderRadius: '12px', border: '1px solid #30363d', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
-      <h2 style={{ textAlign: 'center', color: '#ff7b72', marginTop: 0 }}>🚨 Central de Emergência - RAPS</h2>
-      <p style={{ textAlign: 'center', color: '#c9d1d9' }}>
-        Clique no botão para acionar o alerta ou utilize os telefones diretos de socorro.
-      </p>
-      
+    <div style={{ padding: '25px', maxWidth: '550px', margin: '0 auto', backgroundColor: '#f8fafc', borderRadius: '12px', border: '1px solid #30363d', boxShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>
       {/* Botão Principal de Emergência */}
-      <div style={{ backgroundColor: '#fff', padding: '2rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', marginBottom: '1.5rem' }}>
+      <div style={{ backgroundColor: '#ffffff', padding: '2rem', borderRadius: '12px', textAlign: 'center', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', marginBottom: '1.5rem' }}>
         <AlertOctagon size={48} color="#d32f2f" style={{ marginBottom: '0.5rem' }} />
         <h2 style={{ margin: '0 0 0.5rem 0', color: '#d32f2f' }}>Apoio de Emergência</h2>
         <p style={{ color: '#ffffff', fontSize: '0.95rem' }}>Pressione o botão abaixo para notificar sua rede de apoio instantaneamente.</p>
@@ -66,15 +62,21 @@ function SOSModule() {
 
       <hr style={{ border: 'none', borderTop: '1px solid #30363d', margin: '20px 0' }} />
 
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+          <Phone size={20} color="#15803d" />
+            <h3 style={{ color: '#15803d', margin: 0, fontSize: '1.1rem', fontWeight: 'bold' }}>
+              Telefones Úteis — Patos de Minas
+            </h3>
+        </div>  
         <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>SAMU:</strong> 192 <small style={{ color: '#000000' }}>(Urgências e crises graves 24h)</small>
+            <strong style={{ color: '#000000' }}>SAMU:</strong><small style={{ color: '#000000' }}> 192 </small>  <small style={{ color: '#000000' }}>(Urgências e crises graves 24h)</small>
           </li>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>CAPS II Patos de Minas:</strong> Suporte especializado em saúde mental
+            <strong style={{ color: '#000000' }}>CAPS II Patos de Minas:</strong> <small style={{ color: '#000000' }}> Suporte especializado em saúde mental </small>
           </li>
           <li style={{ padding: '0.8rem 0', borderBottom: '1px solid #eee' }}>
-            <strong>CVV (Centro de Valorização da Vida):</strong> 188 <small style={{ color: '#000000' }}>(Apoio emocional gratuito 24h)</small>
+            <strong style={{ color: '#000000' }}>CVV (Centro de Valorização da Vida):</strong><small style={{ color: '#000000' }}> 188 </small><small style={{ color: '#000000' }}>(Apoio emocional gratuito 24h)</small>
           </li>
           <li style={{ padding: '0.8rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <MapPin size={16} color="#2e7d32" />

@@ -47,7 +47,7 @@ export default function MonitoringModule() {
 
         <form onSubmit={handleAssessment} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
           <div>
-            <label style={{ backgroundColor: '#000000', color: 'white',display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
+            <label style={{ backgroundColor: '#ffffff', color: 'black',display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
               Horas de Sono na última noite:
             </label>
             <input 
@@ -63,7 +63,7 @@ export default function MonitoringModule() {
           </div>
 
           <div>
-            <label style={{ backgroundColor: '#000000', color: 'white', display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
+            <label style={{ backgroundColor: '#fffcfc', color: 'black', display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
               Nível de Agitação / Ansiedade:
             </label>
             <select 
@@ -80,7 +80,7 @@ export default function MonitoringModule() {
           </div>
 
           <div>
-            <label style={{ backgroundColor: '#000000', color: 'white',display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
+            <label style={{ backgroundColor: '#ffffff', color: 'black',display: 'block', fontWeight: 'bold', marginBottom: '0.3rem' }}>
               Usou as medicações prescritas corretamente?
             </label>
             <select 
